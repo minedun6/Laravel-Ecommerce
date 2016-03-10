@@ -1,7 +1,8 @@
 <div class="col-sm-3">
     <div class="col-item">
         <div class="photo">
-            <img src="{{$product->img}}" class="img-responsive" alt="{{$product->title}}" />
+            <?php $photo = strstr($product->img, "http://") ? $product->img : 'uploads/'.$product->img  ?>
+            <img src="{{ asset($photo) }}" class="img-responsive" alt="{{$product->title}}" />
         </div>
         <div class="info">
             <div class="row">
@@ -18,12 +19,12 @@
             </div>
             <div class="separator clear-left">
                 {!! Form::open(['route' => 'addToCart']) !!}
-                    {!! Form::hidden('quantity', 1) !!}
-                    {!! Form::hidden('productId', $product->id) !!}
-                    <p class="btn-add">
-                        <i class="fa fa-shopping-cart"></i>
-                        <button type="submit" class="btn-link hidden-sm">Add to Cart</button>
-                    </p>
+                {!! Form::hidden('quantity', 1) !!}
+                {!! Form::hidden('productId', $product->id) !!}
+                <p class="btn-add">
+                    <i class="fa fa-shopping-cart"></i>
+                    <button type="submit" class="btn-link hidden-sm" {{ $product->qty == 0 ? 'disabled' : '' }}>Add to Cart</button>
+                </p>
                 {!! Form::close() !!}
                 <p class="btn-details">
                     <i class="fa fa-list"></i><a href="" class="hidden-sm">More details</a></p>

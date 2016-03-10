@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Category;
 use Illuminate\Support\ServiceProvider;
 use App\Product;
 
@@ -14,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->share('products', Product::all());
+        view()->share('products', Product::with('category')->get());
+        view()->share('categories', Category::with('products')->get());
     }
 
     /**

@@ -8,28 +8,22 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-comments fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">{{ count($products) }}</div>
-                            <div>Products</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
+        @include('admin.partials.widget', [
+            'panelColor' => 'primary', 'icon' => 'shopping-cart', 'value' => count($products), 'headline' => 'Products'
+        ])
+
+        @include('admin.partials.widget', [
+            'panelColor' => 'green', 'icon' => 'bar-chart', 'value' => '12.5M $', 'headline' => 'Profit'
+        ])
+
+        @include('admin.partials.widget', [
+            'panelColor' => 'yellow', 'icon' => 'archive', 'value' => 22, 'headline' => 'Orders'
+        ])
+
+        @include('admin.partials.widget', [
+            'panelColor' => 'red', 'icon' => 'warning', 'value' => count($products->where('qty','=','0')), 'headline' => 'Alerts'
+        ])
+
     </div>
 
 @endsection

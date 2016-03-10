@@ -165,7 +165,9 @@ return [
         * Third Party Service Providers
         */
         Moltin\Cart\CartServiceProvider::class,
-        Laracasts\Flash\FlashServiceProvider::class
+        Laracasts\Flash\FlashServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -216,7 +218,8 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
 
         'Cart'      => Moltin\Cart\Facade::class,
-        'Flash'     => Laracasts\Flash\Flash::class
+        'Flash'     => Laracasts\Flash\Flash::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

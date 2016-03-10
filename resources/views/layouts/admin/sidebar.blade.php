@@ -12,16 +12,19 @@
                 </div>
             </li>
             <li class="active">
-                <a href=""><i class="fa fa-home fa-fw"></i> Dashboard</a>
+                <a href="{{ route('admin.dashboard') }}"><i class="fa fa-home fa-fw"></i> Dashboard</a>
             </li>
             <li>
-                <a href=""><i class="fa fa-archive fa-fw"></i> Products</a>
+                <a href="{{ route('admin.categories.index') }}"><i class="fa fa-archive fa-fw"></i> Categories</a>
+            </li>
+            <li>
+                <a href="{{ route('admin.products.index') }}"><i class="fa fa-shopping-cart fa-fw"></i> Products</a>
             </li>
             <li>
                 <a href=""><i class="fa fa-user fa-fw"></i> Clients</a>
             </li>
             <li>
-                <a href=""><i class="fa fa-credit-card fa-fw"></i> Payements</a>
+                <a href=""><i class="fa fa-credit-card fa-fw"></i> Orders</a>
             </li>
             <li>
                 <a href=""><i class="fa fa-clock-o fa-fw"></i> Schedules</a>

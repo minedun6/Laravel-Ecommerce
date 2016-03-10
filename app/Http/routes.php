@@ -17,15 +17,17 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('logout', 'SessionsController@logout');
 
     Route::group(['middleware' => 'auth'], function() {
-        Route::get('dashboard', 'AdminController@dashboard');
         Route::post('addtocart', 'CartController@postAddToCart')->name('addToCart');
         Route::get('cart', 'CartController@cart')->name('cart');
         Route::post('updatecart', 'CartController@patchUpdateCart')->name('updateCart');
         Route::post('removefromcart', 'CartController@deleteFromCart')->name('removeFromCart');
+        Route::post('checkout', 'CartController@checkout')->name('checkout');
     });
 
     Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
+        Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
         Route::resource('products', 'ProductsController');
+        Route::resource('categories', 'CategoriesController');
     });
 
 });

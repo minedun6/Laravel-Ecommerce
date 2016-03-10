@@ -17,6 +17,6 @@ class PagesController extends Controller
     public function home()
     {
         $products = Product::paginate(5);
-        return view('pages.home', compact('products'));
+        return view('pages.homev3', compact('products'));
     }
 }

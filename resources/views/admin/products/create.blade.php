@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header"> <i class="fa fa-plus fa-fw"></i> Create New Product</h1>
+            <h1 class="page-header"><i class="fa fa-plus fa-fw"></i> Create New Product</h1>
         </div>
     </div>
 
@@ -15,6 +15,7 @@
                     <i class="fa fa-archive fa-fw"></i> Create New Product
                 </div>
                 <div class="panel-body">
+                    @include('flash::message')
                     @include('admin.partials.products.create-product', ['product' => $product])
                 </div>
             </div>

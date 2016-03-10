@@ -20,7 +20,7 @@ $factory->define(App\User::class, function ($faker) {
     ];
 });
 
-$factory->define(App\Category::class, function($faker) {
+$factory->define(App\Category::class, function ($faker) {
     return [
         'name' => $faker->word()
     ];
@@ -29,10 +29,12 @@ $factory->define(App\Category::class, function($faker) {
 $factory->define(App\Product::class, function ($faker) {
     return [
         'title' => $faker->sentence(2, true),
+        'code' => 'PROD' . $faker->ean8,
         'price' => $faker->randomFloat(NULL, 0, 2000),
         'description' => $faker->paragraph(),
         'qty' => $faker->numberBetween(10, 500),
         'img' => $faker->imageUrl(350, 260, 'technics'),
-        'category_id' => factory(App\Category::class)->create()->id
+        'category_id' => array_rand(\App\Category::pluck('name', 'id')->toArray(), 1)
     ];
 });
+

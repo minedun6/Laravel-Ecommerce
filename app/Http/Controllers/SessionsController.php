@@ -35,6 +35,7 @@ class SessionsController extends Controller
     public function postLogin(Request $request)
     {
         $this->validate($request, ['email' => 'required|email', 'password' => 'required']);
+
         if ($this->signIn($request)) {
             flash('Welcome back!');
             return redirect()->intended('/dashboard');
@@ -103,7 +104,7 @@ class SessionsController extends Controller
         ]);
         $user = User::create($request->all());
         $mailer->sendEmailConfirmationTo($user);
-        flash('Please confirm your email address.');
+        flash()->success('Registration Done ! Please confirm your email address to Activate Your Account.');
         return redirect()->back();
     }
     /**
